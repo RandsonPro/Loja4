@@ -30,6 +30,14 @@
                         <a class="nav-link" href="{{ url_for('vendas') }}">🛒 Vendas</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('dashboard_admin') }}">🔐 Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('lojas') }}">🏬 Acessar Lojas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger text-white px-3" href="{{ url_for('logout') }}">🚪 Logout</a>
+                    </li>
                                             
                     </li>
                 </ul>
@@ -47,7 +55,7 @@
 </body>
 </html>
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-<footer class="bg-primary text-light py-4 mt-5 w-1000">
+<footer class="bg-dark text-light py-4 mt-5 w-100">
     <div class="container-fluid text-center">
         <p class="mb-1">© {{ current_year }} RandsonPro. Todos os direitos reservados 2025.</p>
         <p class="mb-0">
