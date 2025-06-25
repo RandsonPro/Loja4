@@ -10,8 +10,8 @@ import json
 from models import Caixa, Cliente, Pedido, Produto, Usuario, db
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///lanchonete.db"
-app.config["SECRET_KEY"] = "sua_chave_super_secreta"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://loja1_user:GXDaSjMFvYFfUx84TmgV8yoorWUYpUtD@dpg-d1de5l3e5dus73bagpqg-a/loja1"
+app.config["SECRET_KEY"] = "postgresql://loja1_user:GXDaSjMFvYFfUx84TmgV8yoorWUYpUtD@dpg-d1de5l3e5dus73bagpqg-a/loja1"
 db.init_app(app)
 
 load_dotenv()  # 🔹 Carregar variáveis de ambiente
