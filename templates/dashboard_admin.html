@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Painel Administrativo - Grupo Vix{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-3">🔑 Painel Administrativo</h2>
+    <hr>
+
+    <div class="row">
+        <!-- Menu de Ações -->
+        <div class="col-md-4">
+            <div class="d-grid gap-3">
+                <a href="{{ url_for('home') }}" class="btn btn-primary">📦 Frente de Caixa</a>
+                <a href="{{ url_for('vendas') }}" class="btn btn-success">📊 Vendas</a>
+                <a href="{{ url_for('estoque') }}" class="btn btn-info">📦 Controle de Estoque</a>
+                <a href="{{ url_for('controle_caixa') }}" class="btn btn-dark">💰 Controle de Caixa</a>
+                <a href="{{ url_for('vendas_realizadas') }}" class="btn btn-dark">📄 Vendas Realizadas</a>
+                <a href="{{ url_for('relatorio_vendas') }}" class="btn btn-dark">📄 Relatório de Vendas</a>
+                <a href="{{ url_for('listar_clientes') }}" class="btn btn-warning text-dark">📁 Ver Clientes</a>
+                <a href="{{ url_for('listar_usuarios') }}" class="btn btn-danger">👥 Usuários do Sistema</a>
+            </div>
+        </div>
+
+        <!-- Resumo do Dia -->
+        <div class="col-md-8">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body bg-light">
+                    <h4 class="mb-3">📊 Resumo do Sistema</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Total de Vendas Hoje:
+                            <span class="badge bg-success rounded-pill">{{ pedidos_finalizados }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Vendas Canceladas:
+                            <span class="badge bg-danger rounded-pill">{{ pedidos_cancelados }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Faturamento Total:
+                            <span class="badge bg-warning text-dark rounded-pill">R$ {{ faturamento_total }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Dashboard com Cards -->
+            <div class="row text-center">
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-primary text-white shadow-sm">
+                        <div class="card-body">
+                            <h5>Total de Produtos</h5>
+                            <h3>{{ total_produtos }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-success text-white shadow-sm">
+                        <div class="card-body">
+                            <h5>Finalizados</h5>
+                            <h3>{{ pedidos_finalizados }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-danger text-white shadow-sm">
+                        <div class="card-body">
+                            <h5>Cancelados</h5>
+                            <h3>{{ pedidos_cancelados }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-warning text-dark shadow-sm">
+                        <div class="card-body">
+                            <h5>Faturamento</h5>
+                            <h3>R$ {{ faturamento_total }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
